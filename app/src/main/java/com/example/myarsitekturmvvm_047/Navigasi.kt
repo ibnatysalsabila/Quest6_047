@@ -1,0 +1,28 @@
+package com.example.myarsitekturmvvm_047
+
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.myarsitekturmvvm_047.model.DataJK.JenisK
+import com.example.myarsitekturmvvm_047.view.FormIsian
+import com.example.myarsitekturmvvm_047.view.TampilData
+import com.example.myarsitekturmvvm_047.viewmodel.SiswaViewModel
+
+enum class Navigasi{
+    Formulirku,
+    Detail
+}
+@Composable
+fun DataApp(
+    modifier: Modifier,
+    viewModel: SiswaViewModel = viewModel(),
+    navController: NavHostController = rememberNavController()
+){
+    
