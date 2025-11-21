@@ -34,3 +34,28 @@ fun DataApp(
             modifier = Modifier.padding(paddingValues = isiRuang)) {
             composable(route = Navigasi.Formulirku.name) {
                 val konteks = LocalContext.current
+                FormIsian(
+                    pilihanJK = JenisK.map {id -> konteks.resources.getString(id)},
+                    OnSubmitBtnClicked = {
+                        viewModel.setSiswa(it)
+                        navController.navigate(route = Navigasi.Detail.name)
+                    }
+                )
+            }
+            composable(route = Navigasi.Detail.name) {
+                TampilData(
+                    statusUiSiswa = uiState.value,
+                    onBackBtnClicked = {
+                        cancelAndBackToFormulir(navController)
+                    }
+                )
+            }
+        }
+    }
+}
+
+private fun cancelAndBackToFormulir(
+    navController: NavHostController
+){
+    navController.popBackStack(route = Navigasi.Formulirku.name, inclusive = false)
+}
