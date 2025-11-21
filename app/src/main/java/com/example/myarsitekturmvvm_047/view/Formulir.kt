@@ -41,3 +41,8 @@ fun FormIsian(
     modifier: Modifier = Modifier
 ) {
 
+    var txtNama by rememberSaveable { mutableStateOf(value = "") }
+    var txtAlamat by rememberSaveable { mutableStateOf(value = "") }
+    var txtGender by rememberSaveable { mutableStateOf(value = "") }
+    val listData : MutableList<String> = mutableListOf(txtNama, txtGender , txtAlamat)
+
