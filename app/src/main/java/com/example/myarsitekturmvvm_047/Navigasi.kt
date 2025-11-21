@@ -25,4 +25,12 @@ fun DataApp(
     viewModel: SiswaViewModel = viewModel(),
     navController: NavHostController = rememberNavController()
 ){
-    
+    Scaffold { isiRuang->
+        val uiState = viewModel.statusUI.collectAsState()
+        NavHost(
+            navController = navController,
+            startDestination = Navigasi.Formulirku.name,
+
+            modifier = Modifier.padding(paddingValues = isiRuang)) {
+            composable(route = Navigasi.Formulirku.name) {
+                val konteks = LocalContext.current
