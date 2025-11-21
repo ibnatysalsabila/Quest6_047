@@ -1,0 +1,16 @@
+package com.example.myarsitekturmvvm_047.viewmodel
+
+import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.ViewModel
+import androidx.room.util.copy
+import com.example.myarsitekturmvvm_047.model.Siswa
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
+
+class SiswaViewModel : ViewModel (){
+
+    private val _statusUI = MutableStateFlow(value = Siswa())
+    val statusUI: StateFlow<Siswa> = _statusUI.asStateFlow()
+
